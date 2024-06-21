@@ -26,7 +26,7 @@ jobs:
     - name: Display environment variables
       run: |
           echo "Root User Email: $ZO_ROOT_USER_EMAIL"
-          cho "Root User Password: $ZO_ROOT_USER_PASSWORD"
+          echo "Root User Password: $ZO_ROOT_USER_PASSWORD"
 
     - name: Set up Python
       uses: actions/setup-python@v2
