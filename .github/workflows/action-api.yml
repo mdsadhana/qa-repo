@@ -9,9 +9,24 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      ZO_ROOT_USER_EMAIL: root@example.com
+      ZO_ROOT_USER_PASSWORD: Complexpass#123
+
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Set environment variables
+      run: |
+          echo "export ZO_ROOT_USER_EMAIL=${ZO_ROOT_USER_EMAIL}" >> $GITHUB_ENV
+          echo "export ZO_ROOT_USER_PASSWORD=${ZO_ROOT_USER_PASSWORD}" >> $GITHUB_ENV
+
+    - name: Display environment variables
+      run: |
+          echo "Root User Email: $ZO_ROOT_USER_EMAIL"
+          cho "Root User Password: $ZO_ROOT_USER_PASSWORD"
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -23,6 +38,7 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install pytest
+        pip install requests
 
     - name: Run pytest
       run: |
