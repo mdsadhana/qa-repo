@@ -9,6 +9,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      openobserve:
+        image: openobserve/openobserve:latest
+        ports:
+          - 5080:5080
+        options: >-
+          --name openobserve
+          --env-file .env
+
     env:
       ZO_ROOT_USER_EMAIL: root@example.com
       ZO_ROOT_USER_PASSWORD: Complexpass#123
