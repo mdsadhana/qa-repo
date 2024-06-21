@@ -1,8 +1,10 @@
 import requests
+import os
 
-BASE_URL = "http://localhost:5080"
-username = "root@example.com"
-password = "Complexpass#123"
+BASE_URL = os.environ["ZO_BASE_URL"]
+username = os.environ["ZO_ROOT_USER_EMAIL"]
+password = os.environ["ZO_ROOT_USER_PASSWORD"]
+
 
 def create_session():
     session = requests.Session()
