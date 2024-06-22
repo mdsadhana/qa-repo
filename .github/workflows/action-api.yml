@@ -23,7 +23,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set environment variables
+    - name: Set environment variables1
       env:
         ZO_ROOT_USER_EMAIL: "root@example.com"
         ZO_ROOT_USER_PASSWORD: "Complexpass#123"
@@ -32,7 +32,7 @@ jobs:
         echo "Root User Email: $ZO_ROOT_USER_EMAIL"
         echo "Root User Password: $ZO_ROOT_USER_PASSWORD"
         echo "Base URL: $ZO_BASE_URL"
-    - name: Set environment variables
+    - name: Set environment variables2
       run: |
         echo "export ZO_ROOT_USER_EMAIL=${ZO_ROOT_USER_EMAIL}" >> $GITHUB_ENV
         echo "export ZO_ROOT_USER_PASSWORD=${ZO_ROOT_USER_PASSWORD}" >> $GITHUB_ENV
@@ -56,9 +56,9 @@ jobs:
 
     - name: Run pytest
       env:
-        ZO_ROOT_USER_EMAIL: ${ env.ZO_ROOT_USER_EMAIL }
-        ZO_ROOT_USER_PASSWORD: ${ env.ZO_ROOT_USER_PASSWORD }
-        ZO_BASE_URL: ${ env.ZO_BASE_URL }
+        ZO_ROOT_USER_EMAIL: $env.ZO_ROOT_USER_EMAIL
+        ZO_ROOT_USER_PASSWORD: $env.ZO_ROOT_USER_PASSWORD
+        ZO_BASE_URL: $env.ZO_BASE_URL
 
       run: |
         pytest tests
