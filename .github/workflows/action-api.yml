@@ -26,6 +26,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Set up Rust
+      uses: actions/setup-rust@v1
+
+    - name: Build OpenObserve
+      run: cargo build --release
+
+    - name: Start OpenObserve
+      run: ./target/release/openobserve
+
     - name: Set environment variables
       run: |
           echo "export ZO_ROOT_USER_EMAIL=${ZO_ROOT_USER_EMAIL}" >> $GITHUB_ENV
