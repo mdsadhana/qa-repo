@@ -30,9 +30,6 @@ jobs:
     - name: Set up Rust
       uses: Swatinem/rust-cache@v2
 
-    - name: Build OpenObserve
-      run: cargo build --features mimalloc
-
     - name: Start OpenObserve
       run: ./target/release/openobserve
 
