@@ -35,6 +35,7 @@ jobs:
       run: |
           echo "Root User Email: $ZO_ROOT_USER_EMAIL"
           echo "Root User Password: $ZO_ROOT_USER_PASSWORD"
+          echo "Base URL: $ZO_BASE_URL"
 
     - name: Set up Python
       uses: actions/setup-python@v2

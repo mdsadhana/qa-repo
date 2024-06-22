@@ -1,6 +1,6 @@
 import commonFuctions
 
-BASE_URL = commonFuctions.BASE_URL
+BASE_URL = commonFuctions.base_url
 
 
 def test_createFolder():

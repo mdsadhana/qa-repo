@@ -2,7 +2,7 @@ import json
 
 import commonFuctions
 import test_ingestion
-BASE_URL = commonFuctions.BASE_URL
+BASE_URL = commonFuctions.base_url
 
 
 def test_searchSql():
