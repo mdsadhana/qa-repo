@@ -9,11 +9,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     services:
       openobserve:
         image: public.ecr.aws/zinclabs/openobserve:latest
-
+        env:
+          ZO_ROOT_USER_EMAIL: "root@example.com"
+          ZO_ROOT_USER_PASSWORD: "Complexpass#123"
         ports:
           - "5080:5080"
         volumes:
