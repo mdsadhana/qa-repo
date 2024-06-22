@@ -4,10 +4,7 @@ on:
   pull_request:
     branches:
       - main  # Adjust branch name as per your setup
-env:
-    ZO_ROOT_USER_EMAIL: "root@example.com"
-    ZO_ROOT_USER_PASSWORD: "Complexpass#123"
-    ZO_BASE_URL: http://localhost:5080
+
 
 jobs:
   test:
@@ -59,6 +56,10 @@ jobs:
         pip install requests
 
     - name: Run pytest
+      env:
+        ZO_ROOT_USER_EMAIL: "root@example.com"
+        ZO_ROOT_USER_PASSWORD: "Complexpass#123"
+        ZO_BASE_URL: http://localhost:5080
       run: |
         pytest tests
 
