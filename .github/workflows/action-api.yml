@@ -52,10 +52,10 @@ jobs:
         pip install requests
 
     - name: Run pytest
-      env:
-        ZO_ROOT_USER_EMAIL: ${ZO_ROOT_USER_EMAIL}
-        ZO_ROOT_USER_PASSWORD: ${ZO_ROOT_USER_PASSWORD}
-        ZO_BASE_URL: ${ZO_BASE_URL}
+      #env:
+        #ZO_ROOT_USER_EMAIL: ${ZO_ROOT_USER_EMAIL}
+        #ZO_ROOT_USER_PASSWORD: ${ZO_ROOT_USER_PASSWORD}
+        #ZO_BASE_URL: ${ZO_BASE_URL}
       run: |
         pytest tests
 
