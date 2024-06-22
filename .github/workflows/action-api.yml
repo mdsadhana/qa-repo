@@ -56,7 +56,7 @@ jobs:
         ZO_ROOT_USER_EMAIL: "${ZO_ROOT_USER_EMAIL}"
         ZO_ROOT_USER_PASSWORD: "${ZO_ROOT_USER_PASSWORD}"
         ZO_BASE_URL: "${ZO_BASE_URL}"
-        echo "Root User Email: ${{ZO_ROOT_USER_EMAIL}}"
+        echo "Root User Email: ${ZO_ROOT_USER_EMAIL}"
         echo "Root User Password: ${ZO_ROOT_USER_PASSWORD}"
         echo "Base URL: ${ZO_BASE_URL}"
         pytest tests
