@@ -45,5 +45,6 @@ jobs:
 
     - name: Run pytest
       run: |
-       pytest tests --html="reports\pytest_report_$((Get-Date -Format 'MMM_dd_yyyy:HH:mm:ss')).html"
+       timestamp=$(date "+%b_%d_%Y_%H:%M:%S")
+       pytest tests --html="pytest_report_$timestamp.html"
 
