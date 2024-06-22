@@ -58,7 +58,7 @@ jobs:
       run: |
         pytest tests
       env:
-        ZO_ROOT_USER_EMAIL: ${{ env.ZO_ROOT_USER_EMAIL }}
-        ZO_ROOT_USER_PASSWORD: ${{ env.ZO_ROOT_USER_PASSWORD }}
-        ZO_BASE_URL: ${{ env.ZO_BASE_URL }}
+        ZO_ROOT_USER_EMAIL: ${ env.ZO_ROOT_USER_EMAIL }
+        ZO_ROOT_USER_PASSWORD: ${ env.ZO_ROOT_USER_PASSWORD }
+        ZO_BASE_URL: ${ env.ZO_BASE_URL }
  }}  # Always use secrets securely
