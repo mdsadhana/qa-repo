@@ -3,35 +3,28 @@ name: Run pytest on PR
 on:
   pull_request:
     branches:
-      - main  # Adjust branch name as per your
-env:
-  ZO_ROOT_USER_EMAIL: "root@example.com"
-  ZO_ROOT_USER_PASSWORD: "Complexpass#123"
-  ZO_BASE_URL: "http://localhost:5080"
+      - main  # Adjust branch name as per your setup
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     services:
-      # Label used to access the service container
-      redis:
-        # Docker Hub image
-        image: openobserve/openobserve:latest
-        #
+      openobserve:
+        image: public.ecr.aws/zinclabs/openobserve:latest
+        env:
+          ZO_ROOT_USER_EMAIL: "root@example.com"
+          ZO_ROOT_USER_PASSWORD: "Complexpass#123"
+          ZO_BASE_URL: "http://localhost:5080"
         ports:
-          # Opens tcp port 5080 on the host and service container
-          - 5080:5080
+          - "5080:5080"
+        volumes:
+          - data:/data
 
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Set up Rust
-      uses: Swatinem/rust-cache@v2
-
-    - name: Start OpenObserve
-      run: ./target/release/openobserve
 
     - name: Set environment variables
       run: |
