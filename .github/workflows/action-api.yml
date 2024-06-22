@@ -10,8 +10,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      #ZO_ROOT_USER_EMAIL: "root@example.com"
-      #ZO_ROOT_USER_PASSWORD: "Complexpass#123"
+      ZO_ROOT_USER_EMAIL: "root@example.com"
+      ZO_ROOT_USER_PASSWORD: "Complexpass#123"
       ZO_BASE_URL: http://localhost:5080
 
     services:
@@ -41,8 +41,9 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install pytest
         pip install requests
+        pip install pytest-html
 
     - name: Run pytest
       run: |
-       pytest tests
+       pytest tests --html="reports\pytest_report_$((Get-Date -Format 'MMM_dd_yyyy:HH:mm:ss')).html
 
