@@ -29,20 +29,15 @@ jobs:
         ZO_ROOT_USER_EMAIL: "root@example.com"
         ZO_ROOT_USER_PASSWORD: "Complexpass#123"
         ZO_BASE_URL: http://localhost:5080
-      run: |
-        echo "Root User Email: $ZO_ROOT_USER_EMAIL"
-        echo "Root User Password: $ZO_ROOT_USER_PASSWORD"
-        echo "Base URL: $ZO_BASE_URL"
-    - name: Set environment variables2
+
       run: |
         echo "export ZO_ROOT_USER_EMAIL=${ZO_ROOT_USER_EMAIL}" >> $GITHUB_ENV
         echo "export ZO_ROOT_USER_PASSWORD=${ZO_ROOT_USER_PASSWORD}" >> $GITHUB_ENV
         echo "export ZO_BASE_URL=${ZO_BASE_URL}" >> $GITHUB_ENV
-    - name: Display environment variables
-      run: |
-          echo "Root User Email: $ZO_ROOT_USER_EMAIL"
-          echo "Root User Password: $ZO_ROOT_USER_PASSWORD"
-          echo "Base URL: $ZO_BASE_URL"
+        echo "Root User Email: $ZO_ROOT_USER_EMAIL"
+        echo "Root User Password: $ZO_ROOT_USER_PASSWORD"
+        echo "Base URL: $ZO_BASE_URL"
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -56,10 +51,7 @@ jobs:
         pip install requests
 
     - name: Run pytest
-      env:
-        ZO_ROOT_USER_EMAIL: "root@example.com"
-        ZO_ROOT_USER_PASSWORD: "Complexpass#123"
-        ZO_BASE_URL: http://localhost:5080
+
       run: |
         pytest tests
 
