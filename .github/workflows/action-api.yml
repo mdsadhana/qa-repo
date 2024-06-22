@@ -45,5 +45,5 @@ jobs:
 
     - name: Run pytest
       run: |
-       pytest tests --html="reports\pytest_report_$((Get-Date -Format 'MMM_dd_yyyy:HH:mm:ss')).html
+       pytest tests --html="reports\pytest_report_$((Get-Date -Format 'MMM_dd_yyyy:HH:mm:ss')).html"
 
