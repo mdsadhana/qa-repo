@@ -45,12 +45,13 @@ jobs:
 
     - name: Run pytest
       run: |
-       timestamp=$(date "+%b_%d_%Y_%H:%M:%S")
-       pytest tests --html="reports/pytest_report_$timestamp.html"
+       #timestamp=$(date "+%b_%d_%Y_%H:%M:%S")
+       #reportpath=reports/pytest_report_$timestamp.html
+       pytest tests --html=reports/pytest_report.html
 
     - name: Archive test results
       uses: actions/upload-artifact@v2
       with:
           name: test-results
-          path: Path / "reports/pytest_report_$timestamp.html"
+          path: reports/pytest_report.html
 
