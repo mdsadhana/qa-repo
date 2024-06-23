@@ -48,3 +48,9 @@ jobs:
        timestamp=$(date "+%b_%d_%Y_%H:%M:%S")
        pytest tests --html="reports/pytest_report_$timestamp.html"
 
+    - name: Archive test results
+      uses: actions/upload-artifact@v2
+      with:
+          name: test-results
+          path: reports/pytest_report_$timestamp.html
+
